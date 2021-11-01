@@ -11,7 +11,6 @@ function Message({ timestamp, user, message }) {
 					{user.displayName}
 					<span className="timestamp">
 						{new Date(timestamp?.toDate()).toLocaleString()}
-
 					</span>
 				</h4>
 				<p>{message}</p>

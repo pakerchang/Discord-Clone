@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./Chat.css";
-import Message from "./Message";
-
-import ChatHeader from "./ChatHeader";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import GifIcon from "@material-ui/icons/Gif";
-import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
-import RedeemIcon from "@material-ui/icons/Redeem";
-
+import Message from "./Components/Chat/Message";
+import ChatHeader from "./Components/Chat/ChatHeader";
+import db from "./firebase";
 import { selectChannelId, selectChannelName } from "./features/appSlice";
 import { selectUser } from "./features/userSlice";
 import { useSelector } from "react-redux";
-import db from "./firebase";
 import firebase from "firebase";
+
+import { AddCircle, Gif, EmojiEmotions, Redeem } from "@material-ui/icons";
 
 function Chat() {
 	const user = useSelector(selectUser);
@@ -27,9 +23,7 @@ function Chat() {
 				.doc(channelId)
 				.collection("messages")
 				.orderBy("timestamp", "desc")
-				.onSnapshot((snapshot) =>
-					setMessages(snapshot.docs.map((doc) => doc.data()))
-				);
+				.onSnapshot((snapshot) => setMessages(snapshot.docs.map((doc) => doc.data())));
 		}
 	}, [channelId]);
 
@@ -50,16 +44,12 @@ function Chat() {
 
 			<div className="chat__messages">
 				{messages.map((message) => (
-					<Message
-					timestamp={message.timestamp}
-					user={message.user}
-					message={message.message}
-					/>
+					<Message timestamp={message.timestamp} user={message.user} message={message.message} />
 				))}
 			</div>
 
 			<div className="chat__input">
-				<AddCircleIcon fontSize="large" />
+				<AddCircle fontSize="large" />
 				<form>
 					<input
 						value={input}
@@ -67,18 +57,14 @@ function Chat() {
 						onChange={(e) => setInput(e.target.value)}
 						placeholder={`Message #${channelName}`}
 					/>
-					<button
-						disabled={!channelId}
-						className="inputBtn"
-						type="submit"
-						onClick={sendMessage}>
+					<button disabled={!channelId} className="inputBtn" type="submit" onClick={sendMessage}>
 						Send
 					</button>
 				</form>
 				<div className="chat__inputIcons">
-					<RedeemIcon fontSize="large" />
-					<GifIcon fontSize="large" />
-					<EmojiEmotionsIcon fontSize="large" />
+					<Redeem fontSize="large" />
+					<Gif fontSize="large" />
+					<EmojiEmotions fontSize="large" />
 				</div>
 			</div>
 		</div>

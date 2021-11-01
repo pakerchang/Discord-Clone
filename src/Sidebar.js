@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
-
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import AddIcon from "@material-ui/icons/Add";
-import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
-import InfoIcon from "@material-ui/icons/Info";
-import CallIcon from "@material-ui/icons/Call";
-import { Avatar } from "@material-ui/core";
-import MicIcon from "@material-ui/icons/Mic";
-import HeadsetIcon from "@material-ui/icons/Headset";
-import SettingsIcon from "@material-ui/icons/Settings";
-
 import "./Sidebar.css";
-import SidebarChannel from "./SidebarChannel";
+import SidebarChannel from "./Components/Sidebar/SidebarChannel";
+
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
 import db, { auth } from "./firebase";
+
+import { ExpandMore, Add, SignalCellularAlt, Info, Call, Mic, Headset, Settings } from "@material-ui/icons";
+import { Avatar } from "@material-ui/core";
+
+
 
 function Sidebar() {
 	const user = useSelector(selectUser);
@@ -45,39 +40,32 @@ function Sidebar() {
 		<div className="sidebar">
 			<div className="sidebar__serverName">
 				<h3>Discord Clone Channel</h3>
-				<ExpandMoreIcon />
+				<ExpandMore />
 			</div>
 			<div className="sidebar__channels">
 				<div className="sidebar__channelsHeader">
 					<div className="sidebar__header">
-						<ExpandMoreIcon />
+						<ExpandMore />
 						<h4>test</h4>
 					</div>
-					<AddIcon onClick={handleAddChannel} className="sidebar__addChannel" />
+					<Add onClick={handleAddChannel} className="sidebar__addChannel" />
 				</div>
 				<div className="sidebar__channelsList">
 					{channels.map(({ id, channel }) => (
-						<SidebarChannel
-							key={id}
-							id={id}
-							channelName={channel.channelName}
-						/>
+						<SidebarChannel key={id} id={id} channelName={channel.channelName} />
 					))}
 				</div>
 			</div>
 
 			<div className="sidebar__voice">
-				<SignalCellularAltIcon
-					className="sidebar__voiceIcon"
-					fontSize="large"
-				/>
+				<SignalCellularAlt className="sidebar__voiceIcon" fontSize="large" />
 				<div className="sidebar__voiceInfo">
 					<h3>Voice Connected</h3>
 					<p>Stream</p>
 				</div>
 				<div className="sidebar__voiceIcons">
-					<InfoIcon />
-					<CallIcon />
+					<Info />
+					<Call />
 				</div>
 			</div>
 
@@ -88,9 +76,9 @@ function Sidebar() {
 					<p>#{user.uid.substring(0, 5)}</p>
 				</div>
 				<div className="sidebar__profileIcons">
-					<MicIcon />
-					<HeadsetIcon />
-					<SettingsIcon />
+					<Mic />
+					<Headset />
+					<Settings />
 				</div>
 			</div>
 		</div>
