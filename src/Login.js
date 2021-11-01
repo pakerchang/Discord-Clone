@@ -14,7 +14,7 @@ function Login() {
 		<div className="login">
 			<div className="login__logo">
 				<img
-					src="https://upload.wikimedia.org/wikipedia/sco/thumb/9/98/Discord_logo.svg/800px-Discord_logo.svg.png"
+					// src="https://i.pinimg.com/originals/7c/a4/03/7ca403a7ce8f3a79ed24ccaa16c712e9.jpg"
 					alt=""
 				/>
 			</div>

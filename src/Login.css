@@ -1,24 +1,27 @@
 .login {
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    width: 100%;
-    background-color: #2f3135;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	width: 100%;
+	background-color: #2f3135;
+	/* background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/57/90/1zMqeb.jpg"); */
+	background-image: url("https://i.pinimg.com/originals/7c/a4/03/7ca403a7ce8f3a79ed24ccaa16c712e9.jpg");
+	background-size: cover;
 }
 
-.login__logo > img{
-    object-fit: contain;
-    height: 150px;
+.login__logo > img {
+	object-fit: contain;
+	height: 150px;
 }
 
 .login > button {
-    width: 300px;
-    background-color: #748adb;
-    color: #eff2f5;
-    font-weight: 800;
+	width: 300px;
+	background-color: #748adb;
+	color: #eff2f5;
+	font-weight: 800;
 }
 
 .login > button:hover {
-    background-color: black;
-    color: #748adb;
+	background-color: black;
+	color: #748adb;
 }
