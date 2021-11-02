@@ -4,7 +4,7 @@ Clone Discord
 
 #### 前端：基本畫面、頻道創建、頻道選取、使用者聊天功能、Google登入
 
-#### 後端： Data POST、GET 實作
+#### 後端： Database POST、GET 實作
 
 
 ### 使用套件
